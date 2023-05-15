@@ -1,12 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerSpawner : MonoBehaviour
 {
     public GameObject playerPrefab;
-    public int yplayer = 1; public int xplayer = 1;
+    public int yplayer = 1; 
+    public int xplayer = 1;
     public float cDistanc = 0.5f;
     public float spacing;
     private List<GameObject> players = new List<GameObject>();
@@ -19,25 +18,7 @@ public class PlayerSpawner : MonoBehaviour
     }
 
 
-    /*public void Spawn()
-    {
-        for (int j = 0; j < ybrick; j++)
-        {
-            transform.position += Vector3.up;
-            for (int i = 0; i < xbrick; i++)
-            {
-                Instantiate(brickPrefab, transform.position, Quaternion.identity);
-                transform.position += Vector3.right;
-                
-            
-            }
-
-            transform.position += Vector3.left * xbrick;
-            transform.position += Vector3.up * cDistanc;
-        }
-
-       
-    }*/
+    
 
     public void RefillSpawn()
     {

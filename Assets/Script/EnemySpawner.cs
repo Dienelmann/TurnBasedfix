@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -20,25 +18,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-    /*public void Spawn()
-    {
-        for (int j = 0; j < ybrick; j++)
-        {
-            transform.position += Vector3.up;
-            for (int i = 0; i < xbrick; i++)
-            {
-                Instantiate(brickPrefab, transform.position, Quaternion.identity);
-                transform.position += Vector3.right;
-                
-            
-            }
-
-            transform.position += Vector3.left * xbrick;
-            transform.position += Vector3.up * cDistanc;
-        }
-
-       
-    }*/
+    
 
     public void RefillSpawn()
     {
@@ -58,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
             } 
         }
     }
-    public void RemovePlayer(GameObject enemy)
+    public void RemoveEnemy(GameObject enemy)
     {
         enemys.Remove(enemy.gameObject);
         if (enemys.Count == 0)

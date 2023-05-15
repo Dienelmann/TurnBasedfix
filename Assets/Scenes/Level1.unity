@@ -259,11 +259,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50498028}
   m_CullTransparentMesh: 1
---- !u!1 &140858174 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1367717645173276416, guid: c957e2e5fa0fa6042b2b24b41a4f22f2, type: 3}
-  m_PrefabInstance: {fileID: 1367717645045165118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &201114138
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,11 +499,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294385956}
   m_CullTransparentMesh: 1
---- !u!1 &343853739 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1967854796401144000, guid: 55d8172cd18ec554aba6ebcf28757aa2, type: 3}
-  m_PrefabInstance: {fileID: 1967854796072761963}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &459989204
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,8 +939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb45688d7f2e52c4dbe44ec1467672df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 140858174}
-  enemy: {fileID: 343853739}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
   playerhealth: {fileID: 771629640}
   enemyhealth: {fileID: 1962904655}
   AttackBtn: {fileID: 781405237}
@@ -2494,11 +2484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394932566774677414, guid: c957e2e5fa0fa6042b2b24b41a4f22f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.571027
+      value: -5.15
       objectReference: {fileID: 0}
     - target: {fileID: 4394932566774677414, guid: c957e2e5fa0fa6042b2b24b41a4f22f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2750525
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394932566774677414, guid: c957e2e5fa0fa6042b2b24b41a4f22f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2551,6 +2541,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8c8d8d2d2ed3c4b96585fd418fb66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 5047934574768815721, guid: b9d61a4be2f800c49a4df88bb9426b18, type: 3}
+  yplayer: 1
+  xplayer: 1
+  cDistanc: -8
+  spacing: 0
 --- !u!1001 &1967854796072761963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2564,11 +2559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722086517951037165, guid: 55d8172cd18ec554aba6ebcf28757aa2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.571027
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2722086517951037165, guid: 55d8172cd18ec554aba6ebcf28757aa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2750525
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 2722086517951037165, guid: 55d8172cd18ec554aba6ebcf28757aa2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2625,3 +2620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c280f0d362d2446a1baa41e6a3a95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 599243233316590454, guid: be8fb2889c2117b40a1dd722542cbb98, type: 3}
+  yenemy: 1
+  xenemy: 1
+  cDistanc: -2
+  spacing: 0
