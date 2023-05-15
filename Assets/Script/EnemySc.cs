@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class EnemySc : MonoBehaviour
 {
-    [SerializeField] private Slider enemyhaelth = null;
+    [SerializeField] public Slider enemyhaelth = null;
 
     private void Dead()
     {
-        if (enemyhaelth <= 1)
+        if (enemyhaelth.value == 0)
         {
             
         }

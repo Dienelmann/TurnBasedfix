@@ -1,0 +1,69 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Serialization;
+
+public class EnemySpawner : MonoBehaviour
+{
+    public GameObject enemyPrefab;
+    public int yenemy = 1; 
+    public int xenemy = 1;
+    public float cDistanc = 0.5f;
+    public float spacing;
+    private List<GameObject> enemys = new List<GameObject>();
+
+    private void Start()
+    {
+        
+        RefillSpawn();
+        
+    }
+
+
+    /*public void Spawn()
+    {
+        for (int j = 0; j < ybrick; j++)
+        {
+            transform.position += Vector3.up;
+            for (int i = 0; i < xbrick; i++)
+            {
+                Instantiate(brickPrefab, transform.position, Quaternion.identity);
+                transform.position += Vector3.right;
+                
+            
+            }
+
+            transform.position += Vector3.left * xbrick;
+            transform.position += Vector3.up * cDistanc;
+        }
+
+       
+    }*/
+
+    public void RefillSpawn()
+    {
+        foreach (GameObject enemy in enemys)
+        {
+            Destroy(enemy);
+        }
+        enemys.Clear();
+        for (int i = 0; i < xenemy; i++)
+        {
+            for (int j = 0; j < yenemy; j++)
+            {
+                Vector2 spawnPos = (Vector2)transform.position + new Vector2(i * (enemyPrefab.transform.localScale.x + cDistanc),
+                    -j * (enemyPrefab.transform.localScale.y + cDistanc));
+                GameObject brick = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+                enemys.Add((enemyPrefab));
+            } 
+        }
+    }
+    public void RemovePlayer(GameObject enemy)
+    {
+        enemys.Remove(enemy.gameObject);
+        if (enemys.Count == 0)
+        {
+            RefillSpawn();
+        }
+    }
+}
