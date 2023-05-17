@@ -12,13 +12,8 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Start()
     {
-        
         RefillSpawn();
-        
     }
-
-
-    
 
     public void RefillSpawn()
     {
@@ -31,7 +26,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             for (int j = 0; j < yplayer; j++)
             {
-                Vector2 spawnPos = (Vector2)transform.position + new Vector2(i * (playerPrefab.transform.localScale.x + cDistanc),
+                Vector2 spawnPos = (Vector2)transform.position + new Vector2(i * (playerPrefab.transform.localScale.x + cDistanc), 
                     -j * (playerPrefab.transform.localScale.y + cDistanc));
                 GameObject brick = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
                 players.Add((playerPrefab));
@@ -47,5 +42,3 @@ public class PlayerSpawner : MonoBehaviour
         }
     }
 }
-
-

@@ -20,7 +20,6 @@ public class LevelWindow : MonoBehaviour
    private void SetExperienceBarSlider(float experienceNormalized)
    {
       experienceBarSlider.value = experienceNormalized;
-      
    }
 
    private void SetLevelNumber(int LevelNumber)

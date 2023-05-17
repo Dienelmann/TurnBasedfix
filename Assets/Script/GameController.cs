@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private Button AttackBtn = null;
     [SerializeField] private Button HealBtn = null;
     [SerializeField] private Slider expbar = null;
+    [SerializeField] private EnemySpawner enemySpawner;
+    public int Exp = 10;
 
     private bool isPlayerTurn = true;
 
@@ -42,10 +44,7 @@ public class GameController : MonoBehaviour
         ChangeTurn();
     }
 
-    private void Exp(GameObject target, float amount)
-    {
-        expbar.value += amount;
-    }
+    
 
     public void BtnAttack()
     {
@@ -71,15 +70,33 @@ public class GameController : MonoBehaviour
         {
             
             StartCoroutine(PlayerTurn());
+            if (enemyhealth.value <= 0)
+            {
+                expbar.value += Exp;
+                if (expbar.value >= 100)
+                {
+                    expbar.value = 0;
+                    LevelUp();
+                }
+                if (enemySpawner.enemys.Count > 0)
+                {
+                    Destroy(enemySpawner.enemys[0]); 
+                }
+
+                
+                enemySpawner.RefillSpawn();
+                
+
+                
+                
+            }
+            
         }
     }
 
-    public void Win()
+    private void LevelUp()
     {
-        if (enemyhealth.value == 0)
-        {
-            Exp(player, 5);
-        }
+        
     }
 
     private IEnumerator EnemyTurn()

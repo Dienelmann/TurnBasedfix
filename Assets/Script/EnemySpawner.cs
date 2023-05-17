@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public int xenemy = 1;
     public float cDistanc = 0.5f;
     public float spacing;
-    private List<GameObject> enemys = new List<GameObject>();
+    public List<GameObject> enemys = new List<GameObject>();
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 spawnPos = (Vector2)transform.position + new Vector2(i * (enemyPrefab.transform.localScale.x + cDistanc),
                     -j * (enemyPrefab.transform.localScale.y + cDistanc));
                 GameObject brick = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-                enemys.Add((enemyPrefab));
+                enemys.Add((brick));
             } 
         }
     }
