@@ -12,7 +12,19 @@ public class GameController : MonoBehaviour
     [SerializeField] private Button HealBtn = null;
     [SerializeField] private Slider expbar = null;
     [SerializeField] private EnemySpawner enemySpawner;
-    public int Exp = 10;
+    int randomattack = 0;
+    int randomheal = 0;
+    public int Exp = 50;
+    public Text levelText;
+    public int minattack = 10;
+    public int maxattack = 21;
+    public int minheal = 5;
+    public int maxheal = 16;
+    private int eminattack = 5;
+    private int emaxattack = 16;
+    private int eminheal = 5;
+    private int emaxheal = 11;
+    private int currentmaxHp = 100;
 
     private bool isPlayerTurn = true;
 
@@ -77,11 +89,14 @@ public class GameController : MonoBehaviour
                 {
                     expbar.value = 0;
                     LevelUp();
+                    SetLevelNumber(LevelNumber: +1);
                 }
                 if (enemySpawner.enemys.Count > 0)
                 {
                     Destroy(enemySpawner.enemys[0]); 
                 }
+                print("You won the Fight");
+                enemyhealth.value = currentmaxHp;
 
                 
                 enemySpawner.RefillSpawn();
@@ -96,7 +111,16 @@ public class GameController : MonoBehaviour
 
     private void LevelUp()
     {
-        
+        refillhealth();
+        minattack += 5;
+        maxattack *= 2;
+        minheal += 5;
+        maxheal *= 2;
+    }
+
+    private void refillhealth()
+    {
+        playerhealth.value = currentmaxHp;
     }
 
     private IEnumerator EnemyTurn()
@@ -104,11 +128,9 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         int random = 0;
-        random = Random.Range(1, 3);
-        int randomattack = 0;
-        randomattack = Random.Range(5, 16);
-        int randomheal = 0;
-        randomheal = Random.Range(3, 11);
+        random = Random.Range(1, 5);
+        randomattack = Random.Range(eminattack, emaxattack);
+        randomheal = Random.Range(eminheal, emaxheal);
 
         if (random <= 2)
         {
@@ -126,11 +148,9 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         int random = 0;
-        random = Random.Range(1, 3);
-        int randomattack = 0;
-        randomattack = Random.Range(10, 21);
-        int randomheal = 0;
-        randomheal = Random.Range(5, 16);
+        random = Random.Range(1, 5);
+        randomattack = Random.Range(minattack, maxattack);
+        randomheal = Random.Range(minheal, maxheal);
 
         if (random <= 2)
         {
@@ -141,5 +161,10 @@ public class GameController : MonoBehaviour
             Heal(player, randomheal);
         }
         
+    }
+    
+    private void SetLevelNumber(int LevelNumber)
+    {
+        levelText.text = "LEVEL\n" + (LevelNumber + 1);
     }
 }

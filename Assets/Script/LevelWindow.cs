@@ -7,15 +7,11 @@ using UnityEngine.UI;
 
 public class LevelWindow : MonoBehaviour
 {
-   private Text levelText;
-   private Slider experienceBarSlider;
+   public Text levelText;
+   public Slider experienceBarSlider;
    private LevelSystem levelSystem;
 
-   private void Awake()
-   {
-      levelText = transform.Find("levelText").GetComponent<Text>();
-      experienceBarSlider = transform.Find("ExperienceBar").GetComponent<Slider>();
-   }
+   
 
    private void SetExperienceBarSlider(float experienceNormalized)
    {

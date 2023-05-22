@@ -28,7 +28,7 @@ public class PlayerSpawner : MonoBehaviour
             {
                 Vector2 spawnPos = (Vector2)transform.position + new Vector2(i * (playerPrefab.transform.localScale.x + cDistanc), 
                     -j * (playerPrefab.transform.localScale.y + cDistanc));
-                GameObject brick = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+                GameObject player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
                 players.Add((playerPrefab));
             } 
         }
