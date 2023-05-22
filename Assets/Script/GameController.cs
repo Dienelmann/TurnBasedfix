@@ -24,7 +24,6 @@ public class GameController : MonoBehaviour
     private int emaxattack = 16;
     private int eminheal = 5;
     private int emaxheal = 11;
-    private int currentmaxHp = 100;
 
     private bool isPlayerTurn = true;
 
@@ -97,15 +96,8 @@ public class GameController : MonoBehaviour
                     Destroy(enemySpawner.enemys[0]); 
                 }
                 print("You won the Fight");
-                enemyhealth.value = currentmaxHp;
-                
-
-                
-                enemySpawner.RefillSpawn();
-                
-
-                
-                
+                enemyhealth.value = enemyhealth.maxValue;
+                StartCoroutine(NewEnemy());
             }
             
         }
@@ -113,19 +105,18 @@ public class GameController : MonoBehaviour
 
     private void LevelUp()
     {
-        refillhealth();
         minattack += 5;
         maxattack *= 2;
         minheal += 5;
         maxheal *= 2;
-        playerhealth.maxValue += 50;
+        playerhealth.maxValue *= 50;
+        refillhealth();
         
     }
 
     private void refillhealth()
     {
-        
-        playerhealth.value = currentmaxHp;
+        playerhealth.value = playerhealth.maxValue;
     }
 
     private IEnumerator EnemyTurn()
@@ -166,6 +157,12 @@ public class GameController : MonoBehaviour
             Heal(player, randomheal);
         }
         
+    }
+
+    private IEnumerator NewEnemy()
+    {
+        yield return new WaitForSeconds(4);
+        enemySpawner.RefillSpawn();
     }
     
     private void SetLevelNumber(int LevelNumber)
