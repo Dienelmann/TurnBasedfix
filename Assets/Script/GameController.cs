@@ -85,11 +85,12 @@ public class GameController : MonoBehaviour
             if (enemyhealth.value <= 0)
             {
                 expbar.value += Exp;
-                if (expbar.value >= 100)
+                if (expbar.value >= expbar.maxValue)
                 {
                     expbar.value = 0;
                     LevelUp();
                     SetLevelNumber(LevelNumber: +1);
+                    expbar.maxValue *= 1.5f;
                 }
                 if (enemySpawner.enemys.Count > 0)
                 {
@@ -97,6 +98,7 @@ public class GameController : MonoBehaviour
                 }
                 print("You won the Fight");
                 enemyhealth.value = currentmaxHp;
+                
 
                 
                 enemySpawner.RefillSpawn();
@@ -116,10 +118,13 @@ public class GameController : MonoBehaviour
         maxattack *= 2;
         minheal += 5;
         maxheal *= 2;
+        playerhealth.maxValue += 50;
+        
     }
 
     private void refillhealth()
     {
+        
         playerhealth.value = currentmaxHp;
     }
 
@@ -165,6 +170,6 @@ public class GameController : MonoBehaviour
     
     private void SetLevelNumber(int LevelNumber)
     {
-        levelText.text = "LEVEL\n" + (LevelNumber + 1);
+        levelText.text = "LEVEL: " + (LevelNumber ++);
     }
 }
