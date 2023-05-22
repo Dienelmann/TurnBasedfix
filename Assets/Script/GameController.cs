@@ -109,9 +109,8 @@ public class GameController : MonoBehaviour
         maxattack *= 2;
         minheal += 5;
         maxheal *= 2;
-        playerhealth.maxValue *= 50;
+        playerhealth.maxValue *= 1.5f;
         refillhealth();
-        
     }
 
     private void refillhealth()

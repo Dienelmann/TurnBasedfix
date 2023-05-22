@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 spawnPos = (Vector2)transform.position + new Vector2(i * (enemyPrefab.transform.localScale.x + cDistanc),
                     -j * (enemyPrefab.transform.localScale.y + cDistanc));
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-                enemys.Add((enemyPrefab));
+                enemys.Add((enemy));
             } 
         }
     }
