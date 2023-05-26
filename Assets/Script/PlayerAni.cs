@@ -18,6 +18,16 @@ public class PlayerAni : MonoBehaviour
         animator.SetTrigger("Hurt");
     }
 
+    public void Heal()
+    {
+        animator.SetTrigger("Heal");
+    }
+
+    public void Dead()
+    {
+        animator.SetTrigger("Dead");
+    }
+
 
 
 

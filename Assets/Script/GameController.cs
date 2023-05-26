@@ -53,13 +53,15 @@ public class GameController : MonoBehaviour
 
     private void Heal(GameObject target, float amount)
     {
-        if (target == enemy)
+        if (target == player)
         {
-            enemyhealth.value += amount;
+            playerhealth.value += amount;
+            playerani = GameObject.FindWithTag("Player").GetComponent<PlayerAni>();
+            playerani.Heal();
         }
         else
         {
-            playerhealth.value += amount;
+            enemyhealth.value += amount;
         }
         
         ChangeTurn();
@@ -86,6 +88,11 @@ public class GameController : MonoBehaviour
             AttackBtn.interactable = false;
             HealBtn.interactable = false;
             StartCoroutine(EnemyTurn());
+            if (playerhealth.value <= 0)
+            {
+                playerani = GameObject.FindWithTag("Player").GetComponent<PlayerAni>();
+                playerani.Dead();
+            }
             
         }
         else
@@ -148,6 +155,7 @@ public class GameController : MonoBehaviour
         else
         {
             Heal(enemy, randomheal);
+            
         }
         
 
