@@ -24,8 +24,10 @@ public class GameController : MonoBehaviour
     private int emaxattack = 16;
     private int eminheal = 5;
     private int emaxheal = 11;
+    private PlayerAni playerani;
+    
 
-    private bool isPlayerTurn = true;
+    public bool isPlayerTurn = true;
 
     private void Attack(GameObject target, float damage)
     {
@@ -76,11 +78,13 @@ public class GameController : MonoBehaviour
             AttackBtn.interactable = false;
             HealBtn.interactable = false;
             StartCoroutine(EnemyTurn());
+            
         }
         else
         {
             
             StartCoroutine(PlayerTurn());
+            
             if (enemyhealth.value <= 0)
             {
                 expbar.value += Exp;
@@ -120,7 +124,9 @@ public class GameController : MonoBehaviour
 
     private IEnumerator EnemyTurn()
     {
-        yield return new WaitForSeconds(1);
+        
+        yield return new WaitForSeconds(3);
+        
 
         int random = 0;
         random = Random.Range(1, 5);
@@ -135,12 +141,15 @@ public class GameController : MonoBehaviour
         {
             Heal(enemy, randomheal);
         }
+        
 
     }
 
     private IEnumerator PlayerTurn()
     {
-        yield return new WaitForSeconds(1);
+        
+        yield return new WaitForSeconds(3);
+        
 
         int random = 0;
         random = Random.Range(1, 5);
@@ -156,6 +165,7 @@ public class GameController : MonoBehaviour
             Heal(player, randomheal);
         }
         
+        
     }
 
     private IEnumerator NewEnemy()
@@ -168,4 +178,6 @@ public class GameController : MonoBehaviour
     {
         levelText.text = "LEVEL: " + (LevelNumber ++);
     }
+    
+    
 }
