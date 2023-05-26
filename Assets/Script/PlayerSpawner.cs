@@ -10,7 +10,7 @@ public class PlayerSpawner : MonoBehaviour
     public float spacing;
     private List<GameObject> players = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         RefillSpawn();
     }

@@ -8,30 +8,18 @@ public class PlayerAni : MonoBehaviour
     private GameController gamecontroller;
     public Animator animator;
 
-    public void Attacking()
+    public void Attack()
     {
-        animator.SetBool("Attack", true);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Hurt", false);
-        
+        animator.SetTrigger("Attack");
     }
 
-    public void Hurting()
+    public void Hurt()
     {
-        animator.SetBool("Hurt", true);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Attack", false);
-        
+        animator.SetTrigger("Hurt");
     }
 
-    public void Idleing()
-    {
-        animator.SetBool("Hurt", false);
-        animator.SetBool("Idle", true);
-        animator.SetBool("Attack", false);
-    }
-    
-    
-    
-    
+
+
+
+
 }

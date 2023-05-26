@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class GameController : MonoBehaviour
     private int eminheal = 5;
     private int emaxheal = 11;
     private PlayerAni playerani;
+
     
 
     public bool isPlayerTurn = true;
@@ -34,10 +37,15 @@ public class GameController : MonoBehaviour
         if (target == enemy)
         {
             enemyhealth.value -= damage;
+            playerani = GameObject.FindWithTag("Player").GetComponent<PlayerAni>();
+            playerani.Attack();
+            
         }
         else
         {
             playerhealth.value -= damage;
+            playerani = GameObject.FindWithTag("Player").GetComponent<PlayerAni>();
+            playerani.Hurt();
         }
         
         ChangeTurn();
@@ -145,7 +153,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    private IEnumerator PlayerTurn()
+    public IEnumerator PlayerTurn()
     {
         
         yield return new WaitForSeconds(3);
@@ -159,6 +167,7 @@ public class GameController : MonoBehaviour
         if (random <= 2)
         {
             Attack(enemy, randomattack);
+            
         }
         else
         {
