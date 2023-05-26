@@ -493,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8221076907349885266, guid: 0e553e1be6d8f544ebded1210009096b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 86
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 8221076907349885266, guid: 0e553e1be6d8f544ebded1210009096b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -681,6 +681,7 @@ MonoBehaviour:
   maxattack: 21
   minheal: 5
   maxheal: 16
+  isPlayerTurn: 1
 --- !u!4 &727345170
 Transform:
   m_ObjectHideFlags: 0
@@ -1675,9 +1676,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367717645045165119}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4a1a2ac47a15e5942be48bbf5898ca2b, type: 2}
+  m_Controller: {fileID: 9100000, guid: dd42824928f88114d96dd66befec76a0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1703,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722086517951037165, guid: 55d8172cd18ec554aba6ebcf28757aa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 2722086517951037165, guid: 55d8172cd18ec554aba6ebcf28757aa2, type: 3}
       propertyPath: m_LocalPosition.z

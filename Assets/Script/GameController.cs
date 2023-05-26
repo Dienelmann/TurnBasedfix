@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     private int eminheal = 5;
     private int emaxheal = 11;
     private PlayerAni playerani;
+    private EnemyAni enemyani;
 
     
 
@@ -39,13 +40,18 @@ public class GameController : MonoBehaviour
             enemyhealth.value -= damage;
             playerani = GameObject.FindWithTag("Player").GetComponent<PlayerAni>();
             playerani.Attack();
+            enemyani = GameObject.FindWithTag("Enemy").GetComponent<EnemyAni>();
+            enemyani.EHurt();
             
         }
         else
         {
             playerhealth.value -= damage;
+            enemyani = GameObject.FindWithTag("Enemy").GetComponent<EnemyAni>();
+            enemyani.EAttack();
             playerani = GameObject.FindWithTag("Player").GetComponent<PlayerAni>();
             playerani.Hurt();
+            
         }
         
         ChangeTurn();
@@ -62,6 +68,8 @@ public class GameController : MonoBehaviour
         else
         {
             enemyhealth.value += amount;
+            enemyani = GameObject.FindWithTag("Enemy").GetComponent<EnemyAni>();
+            enemyani.EHeal();
         }
         
         ChangeTurn();
@@ -102,6 +110,9 @@ public class GameController : MonoBehaviour
             
             if (enemyhealth.value <= 0)
             {
+                enemyani = GameObject.FindWithTag("Enemy").GetComponent<EnemyAni>();
+                enemyani.EDeath();
+                
                 expbar.value += Exp;
                 if (expbar.value >= expbar.maxValue)
                 {
