@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     private int emaxheal = 11;
     private PlayerAni playerani;
     private EnemyAni enemyani;
+    private int LevelNumber = 1;
 
     
 
@@ -118,7 +119,7 @@ public class GameController : MonoBehaviour
                 {
                     expbar.value = 0;
                     LevelUp();
-                    SetLevelNumber(LevelNumber: +1);
+                    SetLevelNumber();
                     expbar.maxValue *= 1.5f;
                 }
                 if (enemySpawner.enemys.Count > 0)
@@ -202,7 +203,7 @@ public class GameController : MonoBehaviour
         enemySpawner.RefillSpawn();
     }
     
-    private void SetLevelNumber(int LevelNumber)
+    private void SetLevelNumber()
     {
         levelText.text = "LEVEL: " + (LevelNumber ++);
     }
