@@ -106,9 +106,6 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            
-            StartCoroutine(PlayerTurn());
-            
             if (enemyhealth.value <= 0)
             {
                 enemyani = GameObject.FindWithTag("Enemy").GetComponent<EnemyAni>();
@@ -130,6 +127,7 @@ public class GameController : MonoBehaviour
                 enemyhealth.value = enemyhealth.maxValue;
                 StartCoroutine(NewEnemy());
             }
+            StartCoroutine(PlayerTurn());
             
         }
     }
@@ -207,6 +205,8 @@ public class GameController : MonoBehaviour
     {
         levelText.text = "LEVEL: " + (LevelNumber ++);
     }
+
+    
     
     
 }
